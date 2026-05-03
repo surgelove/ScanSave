@@ -1,6 +1,8 @@
 import SwiftUI
 import VisionKit
+import os
 
+/// A SwiftUI wrapper around `VNDocumentCameraViewController`.
 struct DocumentScannerView: UIViewControllerRepresentable {
     let onScan: ([UIImage]) -> Void
     @Environment(\.dismiss) private var dismiss
@@ -19,9 +21,14 @@ struct DocumentScannerView: UIViewControllerRepresentable {
     func makeCoordinator() -> Coordinator {
         Coordinator(parent: self)
     }
+}
 
-    class Coordinator: NSObject, VNDocumentCameraViewControllerDelegate {
-        let parent: DocumentScannerView
+// MARK: - Coordinator
+
+extension DocumentScannerView {
+    final class Coordinator: NSObject, VNDocumentCameraViewControllerDelegate {
+        private let parent: DocumentScannerView
+        private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "com.scansave", category: "DocumentScanner")
 
         init(parent: DocumentScannerView) {
             self.parent = parent
@@ -35,6 +42,7 @@ struct DocumentScannerView: UIViewControllerRepresentable {
             for pageIndex in 0..<scan.pageCount {
                 images.append(scan.imageOfPage(at: pageIndex))
             }
+            logger.info("Scanned \(scan.pageCount) page(s)")
             parent.onScan(images)
             parent.dismiss()
         }
@@ -42,6 +50,7 @@ struct DocumentScannerView: UIViewControllerRepresentable {
         func documentCameraViewControllerDidCancel(
             _ controller: VNDocumentCameraViewController
         ) {
+            logger.info("Scanner cancelled by user")
             parent.dismiss()
         }
 
@@ -49,7 +58,7 @@ struct DocumentScannerView: UIViewControllerRepresentable {
             _ controller: VNDocumentCameraViewController,
             didFailWithError error: Error
         ) {
-            print("Document scan failed: \(error.localizedDescription)")
+            logger.error("Scan failed: \(error.localizedDescription)")
             parent.dismiss()
         }
     }

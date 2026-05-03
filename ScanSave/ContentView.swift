@@ -1,31 +1,34 @@
 import SwiftUI
 import UIKit
+import os
 
+/// The main screen of ScanSave.
+///
+/// Shows a "Scan Document" button that opens the document camera.
+/// After scanning, the PDF is generated and saved automatically without further interaction.
 struct ContentView: View {
+
+    // MARK: - Persisted Settings
+
     @AppStorage("filePrefix") private var filePrefix = "S-24"
     @AppStorage("dateFormat") private var dateFormatRaw = "yyyy-MM-dd"
+
+    // MARK: - State
 
     @State private var showingScanner = false
     @State private var showingSettings = false
     @State private var isProcessing = false
+
+    private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "com.scansave", category: "ContentView")
+
+    // MARK: - Body
 
     var body: some View {
         NavigationStack {
             VStack(spacing: 30) {
                 Spacer()
 
-                Image(systemName: "doc.viewfinder")
-                    .font(.system(size: 80))
-                    .foregroundStyle(.tint)
-
-                Text("ScanSave")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-
-                Text("Scan a document and it's\nautomatically saved as a PDF.")
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-                    .multilineTextAlignment(.center)
+                brandingContent
 
                 Spacer()
 
@@ -33,24 +36,14 @@ struct ContentView: View {
                     ProgressView()
                         .scaleEffect(1.5)
                 } else {
-                    Button(action: { showingScanner = true }) {
-                        Label("Scan Document", systemImage: "camera.viewfinder")
-                            .frame(maxWidth: .infinity, minHeight: 50)
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .controlSize(.large)
-                    .padding(.horizontal, 40)
+                    scanButton
                 }
 
                 Spacer()
             }
-            .navigationTitle("")
-            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: { showingSettings = true }) {
-                        Image(systemName: "gearshape")
-                    }
+                    settingsButton
                 }
             }
             .sheet(isPresented: $showingScanner) {
@@ -64,17 +57,61 @@ struct ContentView: View {
         }
     }
 
+    // MARK: - Subviews
+
+    private var brandingContent: some View {
+        VStack(spacing: 16) {
+            Image(systemName: "doc.viewfinder")
+                .font(.system(size: 80))
+                .foregroundStyle(.tint)
+
+            Text("ScanSave")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+
+            Text("Scan a document and it's automatically saved as a PDF.")
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 40)
+        }
+    }
+
+    private var scanButton: some View {
+        Button(action: { showingScanner = true }) {
+            Label("Scan Document", systemImage: "camera.viewfinder")
+                .frame(maxWidth: .infinity, minHeight: 50)
+        }
+        .buttonStyle(.borderedProminent)
+        .controlSize(.large)
+        .padding(.horizontal, 40)
+    }
+
+    private var settingsButton: some View {
+        Button(action: { showingSettings = true }) {
+            Image(systemName: "gearshape")
+                .accessibilityLabel("Settings")
+        }
+    }
+
+    // MARK: - Scan Handling
+
     private func handleScanResult(_ images: [UIImage]) {
-        guard !images.isEmpty else { return }
+        guard !images.isEmpty else {
+            logger.info("Scan returned no images.")
+            return
+        }
 
         isProcessing = true
 
-        let dateFormat = \DateFormat(rawValue: dateFormatRaw) ?? .dateOnly
+        let dateFormat = DateFormat(rawValue: dateFormatRaw) ?? .dateOnly
         let formatter = DateFormatter()
         formatter.dateFormat = dateFormat.rawValue
         let dateString = formatter.string(from: Date())
         let prefix = filePrefix.trimmingCharacters(in: .whitespaces)
         let fileName = "\(prefix) \(dateString).pdf"
+
+        logger.info("Saving PDF: \(fileName)")
 
         DispatchQueue.global(qos: .userInitiated).async {
             PDFGenerator.generatePDF(from: images, fileName: fileName)
@@ -85,6 +122,12 @@ struct ContentView: View {
             }
         }
     }
+}
+
+// MARK: - Preview
+
+#Preview {
+    ContentView()
 }
 
 #Preview {
