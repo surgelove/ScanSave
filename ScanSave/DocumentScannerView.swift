@@ -2,7 +2,7 @@ import SwiftUI
 import VisionKit
 
 struct DocumentScannerView: UIViewControllerRepresentable {
-    @Binding var scannedImages: [UIImage]
+    let onScan: ([UIImage]) -> Void
     @Environment(\.dismiss) private var dismiss
 
     func makeUIViewController(context: Context) -> VNDocumentCameraViewController {
@@ -31,10 +31,11 @@ struct DocumentScannerView: UIViewControllerRepresentable {
             _ controller: VNDocumentCameraViewController,
             didFinishWith scan: VNDocumentCameraScan
         ) {
+            var images: [UIImage] = []
             for pageIndex in 0..<scan.pageCount {
-                let image = scan.imageOfPage(at: pageIndex)
-                parent.scannedImages.append(image)
+                images.append(scan.imageOfPage(at: pageIndex))
             }
+            parent.onScan(images)
             parent.dismiss()
         }
 
