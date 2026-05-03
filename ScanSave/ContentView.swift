@@ -2,10 +2,12 @@ import SwiftUI
 import UIKit
 
 struct ContentView: View {
+    @AppStorage("filePrefix") private var filePrefix = "S-24"
+    @AppStorage("dateFormat") private var dateFormatRaw = "yyyy-MM-dd"
+
     @State private var showingScanner = false
+    @State private var showingSettings = false
     @State private var isProcessing = false
-    @State private var savedFileName: String?
-    @State private var showConfirmation = false
 
     var body: some View {
         NavigationStack {
@@ -28,13 +30,8 @@ struct ContentView: View {
                 Spacer()
 
                 if isProcessing {
-                    VStack(spacing: 12) {
-                        ProgressView()
-                            .scaleEffect(1.5)
-                        Text("Saving PDF…")
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
-                    }
+                    ProgressView()
+                        .scaleEffect(1.5)
                 } else {
                     Button(action: { showingScanner = true }) {
                         Label("Scan Document", systemImage: "camera.viewfinder")
@@ -45,34 +42,24 @@ struct ContentView: View {
                     .padding(.horizontal, 40)
                 }
 
-                if let name = savedFileName {
-                    HStack {
-                        Image(systemName: "checkmark.circle.fill")
-                            .foregroundStyle(.green)
-                        Text("Saved: \(name)")
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                    }
-                    .padding(.bottom, 10)
-                }
-
                 Spacer()
             }
             .navigationTitle("")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: { showingSettings = true }) {
+                        Image(systemName: "gearshape")
+                    }
+                }
+            }
             .sheet(isPresented: $showingScanner) {
                 DocumentScannerView { images in
                     handleScanResult(images)
                 }
             }
-            .alert("PDF Saved", isPresented: $showConfirmation) {
-                Button("Scan Another", role: .cancel) {
-                    savedFileName = nil
-                }
-            } message: {
-                if let name = savedFileName {
-                    Text("\(name) was saved to the ScanSave folder.\nYou can find it in the Files app.")
-                }
+            .sheet(isPresented: $showingSettings) {
+                SettingsView()
             }
         }
     }
@@ -82,21 +69,19 @@ struct ContentView: View {
 
         isProcessing = true
 
+        let dateFormat = DateFormat(rawValue: dateFormatRaw) ?? .dateOnly
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.dateFormat = dateFormat.rawValue
         let dateString = formatter.string(from: Date())
-        let fileName = "S-24_\(dateString).pdf"
+        let prefix = filePrefix.trimmingCharacters(in: .whitespaces)
+        let fileName = "\(prefix)_\(dateString).pdf"
 
         DispatchQueue.global(qos: .userInitiated).async {
-            let url = PDFGenerator.generatePDF(from: images, fileName: fileName)
+            PDFGenerator.generatePDF(from: images, fileName: fileName)
 
             DispatchQueue.main.async {
                 isProcessing = false
-                if url != nil {
-                    savedFileName = fileName
-                    showConfirmation = true
-                    UINotificationFeedbackGenerator().notificationOccurred(.success)
-                }
+                UINotificationFeedbackGenerator().notificationOccurred(.success)
             }
         }
     }
