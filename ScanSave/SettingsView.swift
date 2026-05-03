@@ -70,7 +70,7 @@ struct SettingsView: View {
         formatter.dateFormat = dateFormatRaw
         let dateString = formatter.string(from: Date())
         let cleanPrefix = filePrefix.trimmingCharacters(in: .whitespaces)
-        return "\(cleanPrefix)_\(dateString).pdf"
+        return "\(cleanPrefix) \(dateString).pdf"
     }
 }
 

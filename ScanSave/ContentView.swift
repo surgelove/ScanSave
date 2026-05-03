@@ -69,12 +69,12 @@ struct ContentView: View {
 
         isProcessing = true
 
-        let dateFormat = DateFormat(rawValue: dateFormatRaw) ?? .dateOnly
+        let dateFormat = \DateFormat(rawValue: dateFormatRaw) ?? .dateOnly
         let formatter = DateFormatter()
         formatter.dateFormat = dateFormat.rawValue
         let dateString = formatter.string(from: Date())
         let prefix = filePrefix.trimmingCharacters(in: .whitespaces)
-        let fileName = "\(prefix)_\(dateString).pdf"
+        let fileName = "\(prefix) \(dateString).pdf"
 
         DispatchQueue.global(qos: .userInitiated).async {
             PDFGenerator.generatePDF(from: images, fileName: fileName)
