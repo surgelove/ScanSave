@@ -10,17 +10,19 @@ struct ContentView: View {
 
     // MARK: - Persisted Settings
 
-    @AppStorage("filePrefix") private var filePrefix = "S-24"
-    @AppStorage("dateFormat") private var dateFormatRaw = "yyyy-MM-dd"
+    @AppStorage("filePrefix") private var filePrefix = "prefix"
+    @AppStorage("dateFormat") private var dateFormatRaw = "yyyy-MM-dd HH'h'mm'm'ss's'"
     @AppStorage("autoScanOnLaunch") private var autoScanOnLaunch = false
+    @AppStorage("saveFormat") private var saveFormat = "pdf"
 
     // MARK: - State
 
     @State private var showingScanner = false
     @State private var showingSettings = false
     @State private var isProcessing = false
-    @State private var showSavedToast = false
-    @State private var savedFileName = ""
+    @State private var showSavedImage = false
+    @State private var showBranding = true
+    @State private var imageScale: CGFloat = 0.3
 
     private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "com.scansave", category: "ContentView")
 
@@ -28,25 +30,39 @@ struct ContentView: View {
 
     var body: some View {
         NavigationStack {
-            VStack(spacing: 30) {
-                Spacer()
+            ZStack {
+                VStack(spacing: 30) {
+                    Spacer()
 
-                brandingContent
+                    if showBranding {
+                        brandingContent
+                    }
 
-                Spacer()
+                    Spacer()
 
-                if isProcessing {
-                    ProgressView()
-                        .scaleEffect(1.5)
-                } else {
-                    scanButton
+                    if isProcessing {
+                        ProgressView()
+                            .scaleEffect(1.5)
+                    } else if showBranding {
+                        scanButton
+                    }
+
+                    Spacer()
+                }
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        settingsButton
+                    }
                 }
 
-                Spacer()
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    settingsButton
+                // Robot overlay centered in the screen
+                if showSavedImage {
+                    Image("scanrobotsaved")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: imageScale * 300, height: imageScale * 300)
+                        .shadow(color: .black.opacity(0.3), radius: 20)
+                        .animation(.easeOut(duration: 0.5), value: imageScale)
                 }
             }
             .sheet(isPresented: $showingScanner) {
@@ -57,11 +73,6 @@ struct ContentView: View {
             .sheet(isPresented: $showingSettings) {
                 SettingsView()
             }
-            .toast(
-                isPresented: $showSavedToast,
-                message: savedFileName,
-                systemImage: "checkmark.circle.fill"
-            )
             .onAppear {
                 if autoScanOnLaunch {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
@@ -124,17 +135,37 @@ struct ContentView: View {
         formatter.dateFormat = dateFormat.rawValue
         let dateString = formatter.string(from: Date())
         let prefix = filePrefix.trimmingCharacters(in: .whitespaces)
-        let fileName = "\(prefix) \(dateString).pdf"
+        let ext = saveFormat == "png" ? "png" : "pdf"
+        let fileName = "\(prefix) \(dateString).\(ext)"
 
-        logger.info("Saving PDF: \(fileName)")
+        logger.info("Saving \(ext.uppercased()): \(fileName)")
 
         DispatchQueue.global(qos: .userInitiated).async {
-            PDFGenerator.generatePDF(from: images, fileName: fileName)
+            if saveFormat == "png" {
+                PNGGenerator.saveAsPNG(from: images, fileName: fileName)
+            } else {
+                PDFGenerator.generatePDF(from: images, fileName: fileName)
+            }
 
             DispatchQueue.main.async {
                 isProcessing = false
-                savedFileName = fileName
-                showSavedToast = true
+                imageScale = 0.2
+                showBranding = false
+                showSavedImage = true
+
+                // Grow to full size over 0.5s
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    imageScale = 1.0
+                }
+
+                // Hold, then disappear
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+                    withAnimation(.easeIn(duration: 0.3)) {
+                        showSavedImage = false
+                        showBranding = true
+                    }
+                }
+
                 UINotificationFeedbackGenerator().notificationOccurred(.success)
             }
         }

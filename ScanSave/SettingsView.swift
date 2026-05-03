@@ -6,9 +6,10 @@ import SwiftUI
 /// - Date format: one of three date/time suffix options.
 /// - Preview: shows the resulting file name in real time.
 struct SettingsView: View {
-    @AppStorage("filePrefix") private var filePrefix = "S-24"
-    @AppStorage("dateFormat") private var dateFormatRaw = DateFormat.dateOnly.rawValue
+    @AppStorage("filePrefix") private var filePrefix = "prefix"
+    @AppStorage("dateFormat") private var dateFormatRaw = DateFormat.dateTimeSeconds.rawValue
     @AppStorage("autoScanOnLaunch") private var autoScanOnLaunch = false
+    @AppStorage("saveFormat") private var saveFormat = "pdf"
 
     var body: some View {
         NavigationStack {
@@ -33,6 +34,11 @@ struct SettingsView: View {
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
+            }
+
+            Picker("Save Format", selection: $saveFormat) {
+                Text("PDF").tag("pdf")
+                Text("PNG").tag("png")
             }
         }
     }
@@ -97,7 +103,8 @@ struct SettingsView: View {
         formatter.dateFormat = dateFormatRaw
         let dateString = formatter.string(from: Date())
         let cleanPrefix = filePrefix.trimmingCharacters(in: .whitespaces)
-        return "\(cleanPrefix) \(dateString).pdf"
+        let ext = saveFormat == "png" ? "png" : "pdf"
+        return "\(cleanPrefix) \(dateString).\(ext)"
     }
 }
 

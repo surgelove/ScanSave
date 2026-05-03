@@ -15,6 +15,7 @@
 		A100000006 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200000008 /* DateFormat.swift */; };
 		A100000007 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200000009 /* SettingsView.swift */; };
 		A100000008 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200000010 /* ToastView.swift */; };
+		A100000009 /* PNGGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200000011 /* PNGGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		A200000008 /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		A200000009 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A200000010 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		A200000011 /* PNGGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNGGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				A200000008 /* DateFormat.swift */,
 				A200000009 /* SettingsView.swift */,
 				A200000010 /* ToastView.swift */,
+				A200000011 /* PNGGenerator.swift */,
 				A200000005 /* Assets.xcassets */,
 				A200000006 /* Info.plist */,
 			);
@@ -149,6 +152,7 @@
 				A100000006 /* DateFormat.swift in Sources */,
 				A100000007 /* SettingsView.swift in Sources */,
 				A100000008 /* ToastView.swift in Sources */,
+				A100000009 /* PNGGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
