@@ -14,6 +14,7 @@
 		A100000005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A200000005 /* Assets.xcassets */; };
 		A100000006 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200000008 /* DateFormat.swift */; };
 		A100000007 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200000009 /* SettingsView.swift */; };
+		A100000008 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200000010 /* ToastView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		A200000007 /* ScanSave.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScanSave.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A200000008 /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		A200000009 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A200000010 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 				A200000004 /* PDFGenerator.swift */,
 				A200000008 /* DateFormat.swift */,
 				A200000009 /* SettingsView.swift */,
+				A200000010 /* ToastView.swift */,
 				A200000005 /* Assets.xcassets */,
 				A200000006 /* Info.plist */,
 			);
@@ -145,6 +148,7 @@
 				A100000004 /* PDFGenerator.swift in Sources */,
 				A100000006 /* DateFormat.swift in Sources */,
 				A100000007 /* SettingsView.swift in Sources */,
+				A100000008 /* ToastView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

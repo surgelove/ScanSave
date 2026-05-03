@@ -13,7 +13,7 @@
 - 📂 **Files app integration** — All PDFs appear in the Files app under *On My iPhone → ScanSave*.
 - 🤖 **Zero intervention** — No share sheets, no previews, no confirmation alerts.
 - 💾 **Auto-save** — PDFs are generated and saved on a background thread immediately after scanning.
-- ✅ **Haptic feedback** — A subtle buzz confirms the PDF was saved successfully.
+- ✅ **Haptic feedback** — A subtle buzz and a Dynamic Island-style toast confirm the save.
 
 ## File Naming
 
@@ -67,6 +67,7 @@ ScanSave/
 │   ├── DateFormat.swift             # Date format enum (3 options)
 │   ├── DocumentScannerView.swift    # VisionKit camera wrapper
 │   ├── PDFGenerator.swift           # PDF generation from images
+│   ├── ToastView.swift              # Dynamic Island-style toast banner
 │   ├── Assets.xcassets/             # App icon & accent color
 │   │   └── AppIcon.appiconset/      # All icon sizes (20px–1024px)
 │   └── Info.plist                   # Bundle metadata & permissions

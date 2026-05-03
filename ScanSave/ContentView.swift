@@ -12,12 +12,15 @@ struct ContentView: View {
 
     @AppStorage("filePrefix") private var filePrefix = "S-24"
     @AppStorage("dateFormat") private var dateFormatRaw = "yyyy-MM-dd"
+    @AppStorage("autoScanOnLaunch") private var autoScanOnLaunch = false
 
     // MARK: - State
 
     @State private var showingScanner = false
     @State private var showingSettings = false
     @State private var isProcessing = false
+    @State private var showSavedToast = false
+    @State private var savedFileName = ""
 
     private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "com.scansave", category: "ContentView")
 
@@ -53,6 +56,18 @@ struct ContentView: View {
             }
             .sheet(isPresented: $showingSettings) {
                 SettingsView()
+            }
+            .toast(
+                isPresented: $showSavedToast,
+                message: savedFileName,
+                systemImage: "checkmark.circle.fill"
+            )
+            .onAppear {
+                if autoScanOnLaunch {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                        showingScanner = true
+                    }
+                }
             }
         }
     }
@@ -118,6 +133,8 @@ struct ContentView: View {
 
             DispatchQueue.main.async {
                 isProcessing = false
+                savedFileName = fileName
+                showSavedToast = true
                 UINotificationFeedbackGenerator().notificationOccurred(.success)
             }
         }

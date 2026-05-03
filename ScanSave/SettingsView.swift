@@ -8,10 +8,12 @@ import SwiftUI
 struct SettingsView: View {
     @AppStorage("filePrefix") private var filePrefix = "S-24"
     @AppStorage("dateFormat") private var dateFormatRaw = DateFormat.dateOnly.rawValue
+    @AppStorage("autoScanOnLaunch") private var autoScanOnLaunch = false
 
     var body: some View {
         NavigationStack {
             Form {
+                behaviorSection
                 prefixSection
                 dateFormatSection
                 previewSection
@@ -21,6 +23,19 @@ struct SettingsView: View {
     }
 
     // MARK: - Sections
+
+    private var behaviorSection: some View {
+        Section("Behavior") {
+            Toggle(isOn: $autoScanOnLaunch) {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Auto-scan on launch")
+                    Text("Opens the scanner automatically when the app starts.")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+            }
+        }
+    }
 
     private var prefixSection: some View {
         Section("File Name Configuration") {
