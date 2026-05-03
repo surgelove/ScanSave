@@ -3,79 +3,29 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 56;
 	objects = {
 
-/* Begin PBXContainerItemProxy section */
-		CD0FE16E2FA7D69C000300F4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CD0FE1542FA7D69B000300F4 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CD0FE15B2FA7D69B000300F4;
-			remoteInfo = ScanSave;
-		};
-		CD0FE1782FA7D69C000300F4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CD0FE1542FA7D69B000300F4 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CD0FE15B2FA7D69B000300F4;
-			remoteInfo = ScanSave;
-		};
-/* End PBXContainerItemProxy section */
+/* Begin PBXBuildFile section */
+		A100000001 /* ScanSaveApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200000001 /* ScanSaveApp.swift */; };
+		A100000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200000002 /* ContentView.swift */; };
+		A100000003 /* DocumentScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200000003 /* DocumentScannerView.swift */; };
+		A100000004 /* PDFGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200000004 /* PDFGenerator.swift */; };
+		A100000005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A200000005 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CD0FE15C2FA7D69B000300F4 /* ScanSave.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScanSave.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CD0FE16D2FA7D69C000300F4 /* ScanSaveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScanSaveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CD0FE1772FA7D69C000300F4 /* ScanSaveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScanSaveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A200000001 /* ScanSaveApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanSaveApp.swift; sourceTree = "<group>"; };
+		A200000002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A200000003 /* DocumentScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentScannerView.swift; sourceTree = "<group>"; };
+		A200000004 /* PDFGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFGenerator.swift; sourceTree = "<group>"; };
+		A200000005 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A200000006 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A200000007 /* ScanSave.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScanSave.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		CD0FE17F2FA7D69C000300F4 /* Exceptions for "ScanSave" folder in "ScanSave" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = CD0FE15B2FA7D69B000300F4 /* ScanSave */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		CD0FE15E2FA7D69B000300F4 /* ScanSave */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				CD0FE17F2FA7D69C000300F4 /* Exceptions for "ScanSave" folder in "ScanSave" target */,
-			);
-			path = ScanSave;
-			sourceTree = "<group>";
-		};
-		CD0FE1702FA7D69C000300F4 /* ScanSaveTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ScanSaveTests;
-			sourceTree = "<group>";
-		};
-		CD0FE17A2FA7D69C000300F4 /* ScanSaveUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ScanSaveUITests;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
-
 /* Begin PBXFrameworksBuildPhase section */
-		CD0FE1592FA7D69B000300F4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CD0FE16A2FA7D69C000300F4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CD0FE1742FA7D69C000300F4 /* Frameworks */ = {
+		A300000001 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -85,22 +35,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CD0FE1532FA7D69B000300F4 = {
+		A400000001 = {
 			isa = PBXGroup;
 			children = (
-				CD0FE15E2FA7D69B000300F4 /* ScanSave */,
-				CD0FE1702FA7D69C000300F4 /* ScanSaveTests */,
-				CD0FE17A2FA7D69C000300F4 /* ScanSaveUITests */,
-				CD0FE15D2FA7D69B000300F4 /* Products */,
+				A400000002 /* ScanSave */,
+				A400000003 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		CD0FE15D2FA7D69B000300F4 /* Products */ = {
+		A400000002 /* ScanSave */ = {
 			isa = PBXGroup;
 			children = (
-				CD0FE15C2FA7D69B000300F4 /* ScanSave.app */,
-				CD0FE16D2FA7D69C000300F4 /* ScanSaveTests.xctest */,
-				CD0FE1772FA7D69C000300F4 /* ScanSaveUITests.xctest */,
+				A200000001 /* ScanSaveApp.swift */,
+				A200000002 /* ContentView.swift */,
+				A200000003 /* DocumentScannerView.swift */,
+				A200000004 /* PDFGenerator.swift */,
+				A200000005 /* Assets.xcassets */,
+				A200000006 /* Info.plist */,
+			);
+			path = ScanSave;
+			sourceTree = "<group>";
+		};
+		A400000003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A200000007 /* ScanSave.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -108,266 +67,138 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CD0FE15B2FA7D69B000300F4 /* ScanSave */ = {
+		A500000001 /* ScanSave */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CD0FE1802FA7D69C000300F4 /* Build configuration list for PBXNativeTarget "ScanSave" */;
+			buildConfigurationList = A600000003 /* Build configuration list for PBXNativeTarget "ScanSave" */;
 			buildPhases = (
-				CD0FE1582FA7D69B000300F4 /* Sources */,
-				CD0FE1592FA7D69B000300F4 /* Frameworks */,
-				CD0FE15A2FA7D69B000300F4 /* Resources */,
+				A700000001 /* Sources */,
+				A300000001 /* Frameworks */,
+				A800000001 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				CD0FE15E2FA7D69B000300F4 /* ScanSave */,
 			);
 			name = ScanSave;
-			packageProductDependencies = (
-			);
 			productName = ScanSave;
-			productReference = CD0FE15C2FA7D69B000300F4 /* ScanSave.app */;
+			productReference = A200000007 /* ScanSave.app */;
 			productType = "com.apple.product-type.application";
-		};
-		CD0FE16C2FA7D69C000300F4 /* ScanSaveTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CD0FE1852FA7D69C000300F4 /* Build configuration list for PBXNativeTarget "ScanSaveTests" */;
-			buildPhases = (
-				CD0FE1692FA7D69C000300F4 /* Sources */,
-				CD0FE16A2FA7D69C000300F4 /* Frameworks */,
-				CD0FE16B2FA7D69C000300F4 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CD0FE16F2FA7D69C000300F4 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				CD0FE1702FA7D69C000300F4 /* ScanSaveTests */,
-			);
-			name = ScanSaveTests;
-			packageProductDependencies = (
-			);
-			productName = ScanSaveTests;
-			productReference = CD0FE16D2FA7D69C000300F4 /* ScanSaveTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		CD0FE1762FA7D69C000300F4 /* ScanSaveUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CD0FE1882FA7D69C000300F4 /* Build configuration list for PBXNativeTarget "ScanSaveUITests" */;
-			buildPhases = (
-				CD0FE1732FA7D69C000300F4 /* Sources */,
-				CD0FE1742FA7D69C000300F4 /* Frameworks */,
-				CD0FE1752FA7D69C000300F4 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CD0FE1792FA7D69C000300F4 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				CD0FE17A2FA7D69C000300F4 /* ScanSaveUITests */,
-			);
-			name = ScanSaveUITests;
-			packageProductDependencies = (
-			);
-			productName = ScanSaveUITests;
-			productReference = CD0FE1772FA7D69C000300F4 /* ScanSaveUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		CD0FE1542FA7D69B000300F4 /* Project object */ = {
+		A900000001 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 2640;
+				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 2640;
 				TargetAttributes = {
-					CD0FE15B2FA7D69B000300F4 = {
-						CreatedOnToolsVersion = 26.4.1;
-					};
-					CD0FE16C2FA7D69C000300F4 = {
-						CreatedOnToolsVersion = 26.4.1;
-						TestTargetID = CD0FE15B2FA7D69B000300F4;
-					};
-					CD0FE1762FA7D69C000300F4 = {
-						CreatedOnToolsVersion = 26.4.1;
-						TestTargetID = CD0FE15B2FA7D69B000300F4;
+					A500000001 = {
+						CreatedOnToolsVersion = 15.0;
 					};
 				};
 			};
-			buildConfigurationList = CD0FE1572FA7D69B000300F4 /* Build configuration list for PBXProject "ScanSave" */;
+			buildConfigurationList = A600000001 /* Build configuration list for PBXProject "ScanSave" */;
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = CD0FE1532FA7D69B000300F4;
-			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 77;
-			productRefGroup = CD0FE15D2FA7D69B000300F4 /* Products */;
+			mainGroup = A400000001;
+			productRefGroup = A400000003 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CD0FE15B2FA7D69B000300F4 /* ScanSave */,
-				CD0FE16C2FA7D69C000300F4 /* ScanSaveTests */,
-				CD0FE1762FA7D69C000300F4 /* ScanSaveUITests */,
+				A500000001 /* ScanSave */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		CD0FE15A2FA7D69B000300F4 /* Resources */ = {
+		A800000001 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CD0FE16B2FA7D69C000300F4 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CD0FE1752FA7D69C000300F4 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				A100000005 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		CD0FE1582FA7D69B000300F4 /* Sources */ = {
+		A700000001 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CD0FE1692FA7D69C000300F4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CD0FE1732FA7D69C000300F4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				A100000001 /* ScanSaveApp.swift in Sources */,
+				A100000002 /* ContentView.swift in Sources */,
+				A100000003 /* DocumentScannerView.swift in Sources */,
+				A100000004 /* PDFGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		CD0FE16F2FA7D69C000300F4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CD0FE15B2FA7D69B000300F4 /* ScanSave */;
-			targetProxy = CD0FE16E2FA7D69C000300F4 /* PBXContainerItemProxy */;
-		};
-		CD0FE1792FA7D69C000300F4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CD0FE15B2FA7D69B000300F4 /* ScanSave */;
-			targetProxy = CD0FE1782FA7D69C000300F4 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
-		CD0FE1812FA7D69C000300F4 /* Debug */ = {
+		A600000004 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = ScanSave/ScanSave.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B89G8SX9MP;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ScanSave/Info.plist;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = nlytix.ScanSave;
+				PRODUCT_BUNDLE_IDENTIFIER = com.scansave.documentscanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		CD0FE1822FA7D69C000300F4 /* Release */ = {
+		A600000005 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = ScanSave/ScanSave.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B89G8SX9MP;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ScanSave/Info.plist;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = nlytix.ScanSave;
+				PRODUCT_BUNDLE_IDENTIFIER = com.scansave.documentscanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
-		CD0FE1832FA7D69C000300F4 /* Debug */ = {
+		A600000006 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
@@ -375,12 +206,10 @@
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
@@ -389,7 +218,6 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -398,40 +226,35 @@
 					"$(inherited)",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		CD0FE1842FA7D69C000300F4 /* Release */ = {
+		A600000007 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
@@ -439,12 +262,10 @@
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
@@ -453,148 +274,46 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		CD0FE1862FA7D69C000300F4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B89G8SX9MP;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = nlytix.ScanSaveTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScanSave.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ScanSave";
-			};
-			name = Debug;
-		};
-		CD0FE1872FA7D69C000300F4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B89G8SX9MP;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = nlytix.ScanSaveTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScanSave.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ScanSave";
-			};
-			name = Release;
-		};
-		CD0FE1892FA7D69C000300F4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B89G8SX9MP;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = nlytix.ScanSaveUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ScanSave;
-			};
-			name = Debug;
-		};
-		CD0FE18A2FA7D69C000300F4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B89G8SX9MP;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = nlytix.ScanSaveUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ScanSave;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CD0FE1572FA7D69B000300F4 /* Build configuration list for PBXProject "ScanSave" */ = {
+		A600000001 /* Build configuration list for PBXProject "ScanSave" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CD0FE1832FA7D69C000300F4 /* Debug */,
-				CD0FE1842FA7D69C000300F4 /* Release */,
+				A600000006 /* Debug */,
+				A600000007 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CD0FE1802FA7D69C000300F4 /* Build configuration list for PBXNativeTarget "ScanSave" */ = {
+		A600000003 /* Build configuration list for PBXNativeTarget "ScanSave" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CD0FE1812FA7D69C000300F4 /* Debug */,
-				CD0FE1822FA7D69C000300F4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CD0FE1852FA7D69C000300F4 /* Build configuration list for PBXNativeTarget "ScanSaveTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CD0FE1862FA7D69C000300F4 /* Debug */,
-				CD0FE1872FA7D69C000300F4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CD0FE1882FA7D69C000300F4 /* Build configuration list for PBXNativeTarget "ScanSaveUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CD0FE1892FA7D69C000300F4 /* Debug */,
-				CD0FE18A2FA7D69C000300F4 /* Release */,
+				A600000004 /* Debug */,
+				A600000005 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = CD0FE1542FA7D69B000300F4 /* Project object */;
+	rootObject = A900000001 /* Project object */;
 }
