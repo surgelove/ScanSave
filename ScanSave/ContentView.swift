@@ -4,8 +4,8 @@ struct ContentView: View {
     @State private var showingScanner = false
     @State private var scannedImages: [UIImage] = []
     @State private var isSaving = false
-    @State private var showingSaveSuccess = false
-    @State private var showFilePicker = false
+    @State private var showingShareSheet = false
+    @State private var pdfURL: URL?
 
     var body: some View {
         NavigationStack {
@@ -28,7 +28,7 @@ struct ContentView: View {
                         .buttonStyle(.bordered)
                         .controlSize(.large)
 
-                        Button(action: savePDF) {
+                        Button(action: saveAndSharePDF) {
                             HStack {
                                 if isSaving {
                                     ProgressView()
@@ -66,10 +66,10 @@ struct ContentView: View {
             .sheet(isPresented: $showingScanner) {
                 DocumentScannerView(scannedImages: $scannedImages)
             }
-            .alert("PDF Saved", isPresented: $showingSaveSuccess) {
-                Button("OK", role: .cancel) { }
-            } message: {
-                Text("Your document has been saved as \(pdfFileName)")
+            .sheet(isPresented: $showingShareSheet) {
+                if let url = pdfURL {
+                    ShareSheet(items: [url])
+                }
             }
         }
     }
@@ -132,21 +132,20 @@ struct ContentView: View {
         return documentsDirectory.appendingPathComponent(pdfFileName)
     }
 
-    private func savePDF() {
+    private func saveAndSharePDF() {
         guard !scannedImages.isEmpty else { return }
         isSaving = true
 
         DispatchQueue.global(qos: .userInitiated).async {
-            let success = PDFGenerator.generatePDF(
+            PDFGenerator.generatePDF(
                 from: scannedImages,
                 fileName: pdfFileName
             )
 
             DispatchQueue.main.async {
                 isSaving = false
-                if success {
-                    showingSaveSuccess = true
-                }
+                pdfURL = pdfFileURL
+                showingShareSheet = true
             }
         }
     }
@@ -156,6 +155,18 @@ struct ContentView: View {
             scannedImages.removeAll()
         }
     }
+}
+
+// MARK: - Share Sheet Wrapper
+
+struct ShareSheet: UIViewControllerRepresentable {
+    let items: [Any]
+
+    func makeUIViewController(context: Context) -> UIActivityViewController {
+        UIActivityViewController(activityItems: items, applicationActivities: nil)
+    }
+
+    func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {}
 }
 
 #Preview {
