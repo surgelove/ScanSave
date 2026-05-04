@@ -95,7 +95,7 @@ struct ContentView: View {
                 .font(.largeTitle)
                 .fontWeight(.bold)
 
-            Text("Scan a document and it's automatically saved as a PDF.")
+            Text("Scan. Save. Done.")
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
