@@ -1,6 +1,6 @@
 # ScanSave 📄
 
-> A minimal iOS document scanner that automatically saves each scan as a PDF — no extra taps, no confirmation dialogs.
+> A minimal iOS document scanner that automatically saves each scan as a PDF or PNG — no extra taps, no confirmation dialogs.
 
 <p align="center">
   <img src="ScanSave/Assets.xcassets/AppIcon.appiconset/icon-ios-marketing-1024x1024-1x.png" width="128" alt="ScanSave Icon">
@@ -8,24 +8,31 @@
 
 ## Features
 
-- 📷 **One-tap scanning** — Open the document camera, scan, and the PDF is saved instantly.
-- ⚙️ **Configurable file names** — Customize the prefix and date format in the Settings screen.
-- 📂 **Files app integration** — All PDFs appear in the Files app under *On My iPhone → ScanSave*.
+- 📷 **One-tap scanning** — Open the document camera, scan, and the file is saved instantly.
+- ⚙️ **Configurable settings** — Customize the prefix, date format, save format (PDF/PNG), and auto-scan behavior.
+- 📂 **Files app integration** — All files appear in the Files app under *On My iPhone → ScanSave*.
 - 🤖 **Zero intervention** — No share sheets, no previews, no confirmation alerts.
-- 💾 **Auto-save** — PDFs are generated and saved on a background thread immediately after scanning.
-- ✅ **Haptic feedback** — A subtle buzz and a Dynamic Island-style toast confirm the save.
+- 💾 **Background auto-save** — Files are generated and saved on a background thread immediately after scanning.
+- 🤖 **Robot confirmation** — An animated robot image grows on screen to confirm the save, then disappears.
+- 🚀 **Auto-scan mode** — Optionally open the scanner automatically when the app launches.
 
 ## File Naming
 
-The naming pattern is `{prefix} {date}.pdf`. Configure both in the settings screen (tap the gear icon).
+The naming pattern is `{prefix} {date}.{ext}`. Configure everything in the settings screen (tap the gear icon).
 
-| Date Format           | Example Output                        |
-|-----------------------|---------------------------------------|
-| `YYYY-MM-DD`          | `S-24 2026-05-03.pdf`                 |
-| `YYYY-MM-DD HHhMM`    | `S-24 2026-05-03 16h53.pdf`           |
-| `YYYY-MM-DD HHhMMmSSs`| `S-24 2026-05-03 16h53m47s.pdf`       |
+**Default:** `prefix 2026-05-03 16h53m47s.pdf`
 
-> Note: Time separators use `h`, `m`, `s` instead of colons (`:`) because colons are invalid in file names on iOS.
+| Date Format           | Example Output                            |
+|-----------------------|-------------------------------------------|
+| `YYYY-MM-DD`          | `prefix 2026-05-03.pdf`                   |
+| `YYYY-MM-DD HHhMM`    | `prefix 2026-05-03 16h53.pdf`             |
+| `YYYY-MM-DD HHhMMmSSs`| `prefix 2026-05-03 16h53m47s.pdf`         |
+
+> Time separators use `h`, `m`, `s` instead of colons (`:`) because colons are invalid in file names on iOS.
+
+**Save formats:**
+- **PDF** — All scanned pages combined into a single multi-page PDF.
+- **PNG** — Saves the first scanned page as a PNG image.
 
 ## Requirements
 
@@ -47,6 +54,15 @@ open ScanSave.xcodeproj
 4. Press **Cmd+R** to build and run.
 5. On first launch, go to *Settings → General → VPN & Device Management* on your iPhone and tap **Trust**.
 
+## Settings
+
+| Setting | Description | Default |
+|---|---|---|
+| Auto-scan on launch | Opens the scanner automatically 1s after launch | Off |
+| Save Format | Choose between **PDF** (multi-page) or **PNG** (single page) | PDF |
+| Prefix | Custom text before the date in the file name | `prefix` |
+| Date Format | One of three date/time suffix formats | `YYYY-MM-DD HHhMMmSSs` |
+
 ## App Store Publishing
 
 1. Enroll in the [Apple Developer Program](https://developer.apple.com/programs) ($99/year).
@@ -63,13 +79,14 @@ ScanSave/
 ├── ScanSave/
 │   ├── ScanSaveApp.swift            # @main app entry point
 │   ├── ContentView.swift            # Main screen & scan flow
-│   ├── SettingsView.swift           # File naming configuration
+│   ├── SettingsView.swift           # File naming & behavior config
 │   ├── DateFormat.swift             # Date format enum (3 options)
 │   ├── DocumentScannerView.swift    # VisionKit camera wrapper
 │   ├── PDFGenerator.swift           # PDF generation from images
-│   ├── ToastView.swift              # Dynamic Island-style toast banner
-│   ├── Assets.xcassets/             # App icon & accent color
-│   │   └── AppIcon.appiconset/      # All icon sizes (20px–1024px)
+│   ├── PNGGenerator.swift           # PNG image saving
+│   ├── Assets.xcassets/             # App icon, accent color & robot image
+│   │   ├── AppIcon.appiconset/      # All icon sizes (20px–1024px)
+│   │   └── scanrobotsaved.imageset/ # Confirmation animation image
 │   └── Info.plist                   # Bundle metadata & permissions
 ├── scansavenoncylon.png             # Custom app icon source image
 ├── .gitignore                       # Xcode user data exclusions
