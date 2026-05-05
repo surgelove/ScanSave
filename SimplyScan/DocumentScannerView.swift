@@ -28,7 +28,7 @@ struct DocumentScannerView: UIViewControllerRepresentable {
 extension DocumentScannerView {
     final class Coordinator: NSObject, VNDocumentCameraViewControllerDelegate {
         private let parent: DocumentScannerView
-        private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "com.scansave", category: "DocumentScanner")
+        private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "com.simplyscan", category: "DocumentScanner")
 
         init(parent: DocumentScannerView) {
             self.parent = parent

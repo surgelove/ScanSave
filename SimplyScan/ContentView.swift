@@ -2,7 +2,7 @@ import SwiftUI
 import UIKit
 import os
 
-/// The main screen of ScanSave.
+/// The main screen of SimplyScan.
 ///
 /// Shows a "Scan Document" button that opens the document camera.
 /// After scanning, the PDF is generated and saved automatically without further interaction.
@@ -23,7 +23,7 @@ struct ContentView: View {
     @State private var showSavedText = false
     @State private var showBranding = true
 
-    private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "com.scansave", category: "ContentView")
+    private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "com.simplyscan", category: "ContentView")
 
     // MARK: - Body
 

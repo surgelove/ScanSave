@@ -58,7 +58,7 @@ enum PDFGenerator {
 // MARK: - Convenience Logger
 
 extension Logger {
-    fileprivate static let subsystem = Bundle.main.bundleIdentifier ?? "com.scansave"
+    fileprivate static let subsystem = Bundle.main.bundleIdentifier ?? "com.simplyscan"
 
     init(category: String = "PDFGenerator") {
         self.init(subsystem: Self.subsystem, category: category)

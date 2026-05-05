@@ -12,7 +12,7 @@ enum PNGGenerator {
     /// - Returns: The file `URL` if successful, or `nil` on failure.
     @discardableResult
     static func saveAsPNG(from images: [UIImage], fileName: String) -> URL? {
-        let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "com.scansave", category: "PNGGenerator")
+        let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "com.simplyscan", category: "PNGGenerator")
 
         guard let firstImage = images.first else {
             logger.error("No images to save.")

@@ -50,6 +50,6 @@
     <key>LSSupportsOpeningDocumentsInPlace</key>
     <true/>
     <key>NSCameraUsageDescription</key>
-    <string>ScanSave needs camera access to scan documents.</string>
+    <string>SimplyScan needs camera access to scan documents.</string>
 </dict>
 </plist>
