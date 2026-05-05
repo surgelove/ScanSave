@@ -20,9 +20,8 @@ struct ContentView: View {
     @State private var showingScanner = false
     @State private var showingSettings = false
     @State private var isProcessing = false
-    @State private var showSavedImage = false
+    @State private var showSavedText = false
     @State private var showBranding = true
-    @State private var imageScale: CGFloat = 0.3
 
     private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "com.scansave", category: "ContentView")
 
@@ -55,14 +54,11 @@ struct ContentView: View {
                     }
                 }
 
-                // Robot overlay centered in the screen
-                if showSavedImage {
-                    Image("scanrobotsaved")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: imageScale * 300, height: imageScale * 300)
-                        .shadow(color: .black.opacity(0.3), radius: 20)
-                        .animation(.easeOut(duration: 0.5), value: imageScale)
+                // Saved confirmation overlay
+                if showSavedText {
+                    Text("Saved.")
+                        .font(.title2.weight(.semibold))
+                        .foregroundStyle(.primary)
                 }
             }
             .sheet(isPresented: $showingScanner) {
@@ -149,20 +145,12 @@ struct ContentView: View {
 
             DispatchQueue.main.async {
                 isProcessing = false
-                imageScale = 0.2
-                showBranding = false
-                showSavedImage = true
-
-                // Grow to full size over 0.5s
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    imageScale = 1.0
-                }
+                showSavedText = true
 
                 // Hold, then disappear
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                     withAnimation(.easeIn(duration: 0.3)) {
-                        showSavedImage = false
-                        showBranding = true
+                        showSavedText = false
                     }
                 }
 

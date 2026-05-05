@@ -3,7 +3,7 @@
 > A minimal iOS document scanner that automatically saves each scan as a PDF or PNG — no extra taps, no confirmation dialogs.
 
 <p align="center">
-  <img src="ScanSave/Assets.xcassets/AppIcon.appiconset/icon-ios-marketing-1024x1024-1x.png" width="128" alt="ScanSave Icon">
+  <img src="image.png" width="128" alt="ScanSave Icon">
 </p>
 
 ## Features
@@ -11,10 +11,19 @@
 - 📷 **One-tap scanning** — Open the document camera, scan, and the file is saved instantly.
 - ⚙️ **Configurable settings** — Customize the prefix, date format, save format (PDF/PNG), and auto-scan behavior.
 - 📂 **Files app integration** — All files appear in the Files app under *On My iPhone → ScanSave*.
-- 🤖 **Zero intervention** — No share sheets, no previews, no confirmation alerts.
+- ✅ **Zero intervention** — No share sheets, no previews, no confirmation alerts.
 - 💾 **Background auto-save** — Files are generated and saved on a background thread immediately after scanning.
-- 🤖 **Robot confirmation** — An animated robot image grows on screen to confirm the save, then disappears.
+- ✅ **Saved. Done.** — A brief on-screen confirmation appears after each save, then fades away.
 - 🚀 **Auto-scan mode** — Optionally open the scanner automatically when the app launches.
+
+## Screenshots
+
+<p align="center">
+  <img src="screenshots/iPhoneScreenshotScan.PNG" width="180" alt="Scan View (Light)">
+  <img src="screenshots/iPhoneScreenshotScanDark.PNG" width="180" alt="Scan View (Dark)">
+  <img src="screenshots/iPhoneScreenshotSettings.PNG" width="180" alt="Settings View (Light)">
+  <img src="screenshots/iPhoneScreenshotSettingsDark.PNG" width="180" alt="Settings View (Dark)">
+</p>
 
 ## File Naming
 
@@ -84,12 +93,16 @@ ScanSave/
 │   ├── DocumentScannerView.swift    # VisionKit camera wrapper
 │   ├── PDFGenerator.swift           # PDF generation from images
 │   ├── PNGGenerator.swift           # PNG image saving
-│   ├── Assets.xcassets/             # App icon, accent color & robot image
+│   ├── Assets.xcassets/             # App icon & accent color
 │   │   ├── AppIcon.appiconset/      # All icon sizes (20px–1024px)
-│   │   └── scanrobotsaved.imageset/ # Confirmation animation image
+│   │   └── scanrobotsaved.imageset/ # (unused — legacy confirmation image)
 │   └── Info.plist                   # Bundle metadata & permissions
-├── scansavenoncylon.png             # Custom app icon source image
 ├── .gitignore                       # Xcode user data exclusions
+├── screenshots/                     # App preview images
+│   ├── iPhoneScreenshotScan.PNG
+│   ├── iPhoneScreenshotScanDark.PNG
+│   ├── iPhoneScreenshotSettings.PNG
+│   └── iPhoneScreenshotSettingsDark.PNG
 └── README.md
 ```
 
