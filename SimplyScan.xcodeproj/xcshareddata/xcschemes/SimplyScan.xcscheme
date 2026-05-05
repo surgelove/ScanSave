@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A500000001"
-               BuildableName = "ScanSave.app"
-               BlueprintName = "ScanSave"
-               ReferencedContainer = "container:ScanSave.xcodeproj">
+               BuildableName = "SimplyScan.app"
+               BlueprintName = "SimplyScan"
+               ReferencedContainer = "container:SimplyScan.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,9 +46,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A500000001"
-            BuildableName = "ScanSave.app"
-            BlueprintName = "ScanSave"
-            ReferencedContainer = "container:ScanSave.xcodeproj">
+            BuildableName = "SimplyScan.app"
+            BlueprintName = "SimplyScan"
+            ReferencedContainer = "container:SimplyScan.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -63,9 +63,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A500000001"
-            BuildableName = "ScanSave.app"
-            BlueprintName = "ScanSave"
-            ReferencedContainer = "container:ScanSave.xcodeproj">
+            BuildableName = "SimplyScan.app"
+            BlueprintName = "SimplyScan"
+            ReferencedContainer = "container:SimplyScan.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

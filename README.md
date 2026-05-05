@@ -1,16 +1,16 @@
-# ScanSave 📄
+# Simply Scan 📄
 
 > A minimal iOS document scanner that automatically saves each scan as a PDF or PNG — no extra taps, no confirmation dialogs.
 
 <p align="center">
-  <img src="image.png" width="128" alt="ScanSave Icon">
+  <img src="image.png" width="128" alt="Simply Scan Icon">
 </p>
 
 ## Features
 
 - 📷 **One-tap scanning** — Open the document camera, scan, and the file is saved instantly.
 - ⚙️ **Configurable settings** — Customize the prefix, date format, save format (PDF/PNG), and auto-scan behavior.
-- 📂 **Files app integration** — All files appear in the Files app under *On My iPhone → ScanSave*.
+- 📂 **Files app integration** — All files appear in the Files app under *On My iPhone → Simply Scan*.
 - ✅ **Zero intervention** — No share sheets, no previews, no confirmation alerts.
 - 💾 **Background auto-save** — Files are generated and saved on a background thread immediately after scanning.
 - ✅ **Saved. Done.** — A brief on-screen confirmation appears after each save, then fades away.
@@ -53,11 +53,11 @@ The naming pattern is `{prefix} {date}.{ext}`. Configure everything in the setti
 
 ```bash
 git clone <repo-url>
-cd ScanSave
-open ScanSave.xcodeproj
+cd SimplyScan
+open SimplyScan.xcodeproj
 ```
 
-1. In Xcode, select the **ScanSave** target → **Signing & Capabilities**.
+1. In Xcode, select the **SimplyScan** target → **Signing & Capabilities**.
 2. Choose your **Team** from the dropdown (or add your Apple ID in *Xcode → Settings → Accounts*).
 3. Connect your iPhone and select it as the build destination.
 4. Press **Cmd+R** to build and run.
@@ -83,10 +83,10 @@ open ScanSave.xcodeproj
 ## Project Structure
 
 ```
-ScanSave/
-├── ScanSave.xcodeproj/              # Xcode project file
-├── ScanSave/
-│   ├── ScanSaveApp.swift            # @main app entry point
+SimplyScan/
+├── SimplyScan.xcodeproj/            # Xcode project file
+├── SimplyScan/
+│   ├── SimplyScanApp.swift          # @main app entry point
 │   ├── ContentView.swift            # Main screen & scan flow
 │   ├── SettingsView.swift           # File naming & behavior config
 │   ├── DateFormat.swift             # Date format enum (3 options)

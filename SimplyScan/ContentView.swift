@@ -87,7 +87,7 @@ struct ContentView: View {
                 .font(.system(size: 80))
                 .foregroundStyle(.tint)
 
-            Text("ScanSave")
+            Text("Simply Scan")
                 .font(.largeTitle)
                 .fontWeight(.bold)
 
